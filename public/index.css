@@ -9,3 +9,37 @@
 	font-size: 20px;
 	font-family: "Open Sans", sans-serif;
 }
+
+/* Light Mode Variables */
+:root {
+	--background: white;
+	--text-primary: black;
+	--text-secondary: royalblue;
+	--accent: purple;
+}
+
+/* Dark Mode Variables */
+[data-theme="dark"] {
+	--background: black;
+	--text-primary: white;
+	--text-secondary: grey;
+	--accent: darkred;
+}
+
+.app {
+	color: var(--text-primary);
+	background-color: var(--background);
+	font-size: large;
+	font-weight: bold;
+	padding: 20px;
+	height: 100vh;
+	transition: all 1s;
+}
+
+button {
+	color: var(--text-primary);
+	background-color: var(--background);
+	border: 2px var(--text-primary) solid;
+	float: right;
+	transition: all 1s;
+}
