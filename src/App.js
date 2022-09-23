@@ -1,7 +1,9 @@
-import { Route, Routes } from "react-router-dom";
 import useLocalState from "./hooks/useLocalState";
 import Home from "./pages/Home";
-import NoPage from "./pages/NoPage";
+import About from "./pages/About";
+import Portfolio from "./pages/Portfolio";
+import Contact from "./pages/Contact";
+import NavBar from "./components/NavBar";
 
 function App() {
 	const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -14,17 +16,13 @@ function App() {
 
 	return (
 		<div className="app" data-theme={theme}>
-			<nav className="navbar">
-				<ul>
-					<li>
-						<button onClick={switchTheme}>Switch to {theme === "light" ? "Dark" : "Light"} Theme</button>
-					</li>
-				</ul>
-			</nav>
-			<Routes>
-				<Route index element={<Home />} />
-				<Route path="*" element={<NoPage />} />
-			</Routes>
+			<NavBar theme={theme} switchTheme={switchTheme} />
+			<div className="page-body">
+				<Home />
+				<About />
+				<Portfolio />
+				<Contact />
+			</div>
 		</div>
 	);
 }
