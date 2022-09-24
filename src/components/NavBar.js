@@ -1,6 +1,8 @@
 import React from "react";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon } from "@fortawesome/free-regular-svg-icons";
+import { faTwitter, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import MenuButton from "./MenuButton";
 
 function NavBar({ theme, switchTheme }) {
@@ -18,18 +20,48 @@ function NavBar({ theme, switchTheme }) {
 		<>
 			<MenuButton openMenu={toggleMenu} />
 			<div onClick={toggleMenu} className="modal-lock hide"></div>
+			<div className="static-icons-left">
+				<div className="icon">
+					<a target="_blank" rel="noreferrer" href="https://github.com/Aphemra">
+						<FontAwesomeIcon icon={faGithub} />
+					</a>
+				</div>
+				<div className="icon">
+					<a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/nickibler/">
+						<FontAwesomeIcon icon={faLinkedin} />
+					</a>
+				</div>
+				<div className="icon">
+					<a target="_blank" rel="noreferrer" href="http://www.twitter.com/aphemra">
+						<FontAwesomeIcon icon={faTwitter} />
+					</a>
+				</div>
+				<div className="divider"></div>
+			</div>
+			<div className="static-icons-right">
+				<div className="email">
+					<a target="_blank" rel="noreferrer" href="mailto:aphemra@gmail.com">
+						aphemra@gmail.com
+					</a>
+				</div>
+				<div className="divider"></div>
+			</div>
 			<nav className="side-navbar hide">
 				<ul className="side-navbar-links-top">
 					<li>
 						<button className="resume-download">
-							<a target="_blank" href={resumePDFLink} rel="noreferrer">
+							<a target="_blank" rel="noreferrer" href={resumePDFLink}>
 								Resume
 							</a>
 						</button>
 					</li>
 					<li>
 						<button className="theme-button" onClick={switchTheme}>
-							<FontAwesomeIcon className="theme-icon" icon={theme === "light" ? faMoon : faSun} />
+							{theme === "light" ? (
+								<DarkModeIcon className="theme-icon" />
+							) : (
+								<LightModeIcon className="theme-icon" />
+							)}
 						</button>
 					</li>
 				</ul>
@@ -79,7 +111,11 @@ function NavBar({ theme, switchTheme }) {
 					</li>
 					<li>
 						<button className="theme-button" onClick={switchTheme}>
-							<FontAwesomeIcon className="theme-icon" icon={theme === "light" ? faMoon : faSun} />
+							{theme === "light" ? (
+								<DarkModeIcon className="theme-icon" />
+							) : (
+								<LightModeIcon className="theme-icon" />
+							)}
 						</button>
 					</li>
 				</ul>

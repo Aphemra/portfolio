@@ -17,10 +17,10 @@
 	--background: rgb(237, 239, 241);
 	--navbar: #f2f3f4;
 	--text-primary: rgb(35, 39, 42);
-	--text-secondary: #5865f2;
+	--text-secondary: rgb(88, 101, 242);
 	--accent: purple;
 
-	--modal-lock-color: 35, 39, 42;
+	--modal-lock-color-raw: 35, 39, 42;
 
 	--box-shadow-color: rgba(100, 100, 111, 0.2);
 }
@@ -29,15 +29,16 @@
 [data-theme="dark"] {
 	--background: rgb(35, 39, 42);
 	--navbar: #2c2f33;
-	--text-primary: #edeff1;
-	--text-secondary: #5865f2;
+	--text-primary: rgb(237, 239, 241);
+	--text-secondary: rgb(88, 101, 242);
 	--accent: darkred;
 
-	--modal-lock-color: 237, 239, 241;
+	--modal-lock-color-raw: 237, 239, 241;
 
-	--box-shadow-color: rgba(231, 231, 255, 0.2);
+	--box-shadow-color: rgba(231, 231, 255, 0.1);
 }
 
+/* Parent Styles */
 html {
 	scroll-padding-top: 5rem;
 	scroll-behavior: smooth;
@@ -53,8 +54,74 @@ html {
 	transition: all var(--transition-time);
 }
 
-/* Nav Bar Styles */
+/* Static Side Content Styles */
+.static-icons-left,
+.static-icons-right {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: column nowrap;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	color: var(--text-primary);
+	width: 4rem;
+	z-index: 4;
+}
 
+.static-icons-left {
+	left: 0.5rem;
+}
+
+.static-icons-left .icon {
+	padding-bottom: 1.5rem;
+}
+
+.static-icons-right {
+	height: 250px;
+	right: 0.5rem;
+}
+
+.static-icons-right .email {
+	transform: rotate(90deg);
+	padding-bottom: 0.25rem;
+	font-size: 0.75rem;
+	font-weight: 400;
+}
+
+.static-icons-right .email a {
+	text-decoration: none;
+	font-size: inherit;
+}
+
+.static-icons-left .icon,
+.static-icons-right .email {
+	cursor: pointer;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.static-icons-left .icon a,
+.static-icons-right .email a {
+	color: var(--text-primary);
+	transition: all var(--transition-time);
+}
+
+.static-icons-left .icon a:hover,
+.static-icons-left .icon a:active,
+.static-icons-right .email a:hover,
+.static-icons-right .email a:active {
+	color: var(--text-secondary);
+	transition: all var(--transition-time);
+}
+
+.divider {
+	width: 1px;
+	height: 6.5rem;
+	background-color: var(--text-primary);
+	transition: all var(--transition-time);
+}
+
+/* Nav Bar Styles */
 .navbar {
 	display: flex;
 	position: fixed;
@@ -127,7 +194,7 @@ html {
 	cursor: pointer;
 	width: 1.1rem;
 	height: 1.1rem;
-	vertical-align: -0.18rem;
+	vertical-align: -0.5rem;
 }
 
 /* Side Navigation Styles */
@@ -151,15 +218,16 @@ html {
 }
 
 .modal-lock {
-	background-color: rgba(var(--modal-lock-color), 0.25);
+	background-color: rgba(var(--modal-lock-color-raw), 0.25);
 	position: absolute;
 	height: 100%;
 	width: 100%;
 	z-index: 4;
+	cursor: pointer;
 }
 
 .modal-lock.hide {
-	background-color: rgba(var(--modal-lock-color), 0);
+	background-color: rgba(var(--modal-lock-color-raw), 0);
 	z-index: -1;
 	transition: all var(--transition-time);
 }
@@ -179,8 +247,14 @@ html {
 	transition: all var(--transition-time);
 }
 
+.menu-button:hover,
+.menu-button:active {
+	color: var(--text-secondary);
+}
+
 .menu-icon {
 	font-size: 1.25rem;
+	cursor: pointer;
 }
 
 .side-navbar-links-top .theme-button {
@@ -249,31 +323,41 @@ html {
 /* Media Queries */
 
 /* Hide Side Nav on Screen Resize */
-@media (min-width: 441px) {
+@media (min-width: 476px) {
 	.side-navbar {
 		width: 0;
 	}
 }
 
-/* Shrink Navbar */
+/* Shrink Navbar and Static Side Content Disappears */
 @media (max-width: 800px) {
 	.navbar-links li,
 	.resume-download {
 		margin: 0.25rem 0.5rem;
 	}
-
 	.navbar-links li,
 	.resume-download {
 		font-size: 0.65rem;
 	}
-
 	.page-body {
 		margin: 2.75rem auto;
+	}
+	.static-icons-left .icon a,
+	.static-icons-right .email a {
+		color: rgba(var(--modal-lock-color-raw), 0);
+		z-index: -1;
+	}
+	.divider {
+		background-color: rgba(var(--modal-lock-color-raw), 0);
+		z-index: -1;
 	}
 }
 
 /* Mobile Screens */
-@media (max-width: 440px) {
+@media (max-width: 475px) {
+	html {
+		scroll-padding-top: 1rem;
+	}
 	.navbar {
 		display: none;
 	}
