@@ -18,7 +18,7 @@ function NavBar({ theme, switchTheme }) {
 		<>
 			<MenuButton openMenu={toggleMenu} />
 			<div onClick={toggleMenu} className="modal-lock hide"></div>
-			<nav className="side-navbar">
+			<nav className="side-navbar hide">
 				<ul className="side-navbar-links-top">
 					<li>
 						<button className="resume-download">
