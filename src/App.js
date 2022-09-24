@@ -5,6 +5,8 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import NavBar from "./components/NavBar";
 
+import "./styles/index.css";
+
 function App() {
 	const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
