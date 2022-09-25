@@ -4,6 +4,8 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import MenuButton from "./MenuButton";
+import lightModeAvatar from "../images/lmAvatar.png";
+import darkModeAvatar from "../images/dmAvatar.png";
 
 function NavBar({ theme, switchTheme }) {
 	const resumePDFLink = "https://drive.google.com/file/d/1AnbkQUZR-gCo5-qJsqJzUFEgjGvexkA9/view?usp=sharing";
@@ -22,17 +24,22 @@ function NavBar({ theme, switchTheme }) {
 			<div onClick={toggleMenu} className="modal-lock hide"></div>
 			<div className="static-icons-left">
 				<div className="icon">
-					<a target="_blank" rel="noreferrer" href="https://github.com/Aphemra">
+					<a title="Visit my GitHub page!" target="_blank" rel="noreferrer" href="https://github.com/Aphemra">
 						<FontAwesomeIcon icon={faGithub} />
 					</a>
 				</div>
 				<div className="icon">
-					<a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/nickibler/">
+					<a
+						title="Visit my LinkedIn page!"
+						target="_blank"
+						rel="noreferrer"
+						href="https://www.linkedin.com/in/nickibler/"
+					>
 						<FontAwesomeIcon icon={faLinkedin} />
 					</a>
 				</div>
 				<div className="icon">
-					<a target="_blank" rel="noreferrer" href="http://www.twitter.com/aphemra">
+					<a title="Visit my Twitter page!" target="_blank" rel="noreferrer" href="http://www.twitter.com/aphemra">
 						<FontAwesomeIcon icon={faTwitter} />
 					</a>
 				</div>
@@ -40,7 +47,7 @@ function NavBar({ theme, switchTheme }) {
 			</div>
 			<div className="static-icons-right">
 				<div className="email">
-					<a target="_blank" rel="noreferrer" href="mailto:aphemra@gmail.com">
+					<a title="Email me!" target="_blank" rel="noreferrer" href="mailto:aphemra@gmail.com">
 						aphemra@gmail.com
 					</a>
 				</div>
@@ -49,14 +56,14 @@ function NavBar({ theme, switchTheme }) {
 			<nav className="side-navbar hide">
 				<ul className="side-navbar-links-top">
 					<li>
-						<button className="resume-download">
+						<button type="button" title="Download my resume!" className="resume-download">
 							<a target="_blank" rel="noreferrer" href={resumePDFLink}>
 								Resume
 							</a>
 						</button>
 					</li>
 					<li>
-						<button className="theme-button" onClick={switchTheme}>
+						<button title="Switch themes!" className="theme-button" onClick={switchTheme}>
 							{theme === "light" ? (
 								<DarkModeIcon className="theme-icon" />
 							) : (
@@ -65,6 +72,19 @@ function NavBar({ theme, switchTheme }) {
 						</button>
 					</li>
 				</ul>
+				<div className="side-nav-divider"></div>
+				<div className="side-avatar-container">
+					<img
+						className="side-site-avatar"
+						src={theme === "light" ? lightModeAvatar : darkModeAvatar}
+						alt="My custom avatar."
+					/>
+					<div className="side-nav-name">
+						<span className="side-nav-first-name">Nic</span>
+						<span className="side-nav-last-name">Kibler</span>
+					</div>
+				</div>
+				<div className="side-nav-divider"></div>
 				<ul className="side-navbar-links">
 					<li>
 						<a onClick={toggleMenu} href="#home">
@@ -87,8 +107,18 @@ function NavBar({ theme, switchTheme }) {
 						</a>
 					</li>
 				</ul>
+				<div className="side-nav-divider"></div>
 			</nav>
 			<nav className="navbar">
+				<div className="avatar-container">
+					<img
+						className="site-avatar"
+						src={theme === "light" ? lightModeAvatar : darkModeAvatar}
+						alt="My custom avatar."
+					/>
+					<span className="nav-first-name"></span>
+					<span className="nav-last-name">Kibler</span>
+				</div>
 				<ul className="navbar-links">
 					<li>
 						<a href="#home">Home</a>
@@ -102,15 +132,15 @@ function NavBar({ theme, switchTheme }) {
 					<li>
 						<a href="#contact">Contact</a>
 					</li>
-					<li>
-						<button className="resume-download">
-							<a target="_blank" href={resumePDFLink} rel="noreferrer">
+					<li className="do-not-bounce">
+						<button title="Download my resume!" className="resume-download">
+							<a type="button" target="_blank" href={resumePDFLink} rel="noreferrer">
 								Resume
 							</a>
 						</button>
 					</li>
-					<li>
-						<button className="theme-button" onClick={switchTheme}>
+					<li className="do-not-bounce">
+						<button title="Switch themes!" className="theme-button" onClick={switchTheme}>
 							{theme === "light" ? (
 								<DarkModeIcon className="theme-icon" />
 							) : (

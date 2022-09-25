@@ -17,25 +17,33 @@
 	--background: rgb(237, 239, 241);
 	--navbar: #f2f3f4;
 	--text-primary: rgb(35, 39, 42);
-	--text-secondary: rgb(88, 101, 242);
-	--accent: purple;
+	--text-secondary: rgb(96, 88, 208);
+	--button-text-color: rgb(237, 239, 241);
+	--button-highlight: rgb(96, 88, 208);
 
 	--modal-lock-color-raw: 35, 39, 42;
 
 	--box-shadow-color: rgba(100, 100, 111, 0.2);
+
+	--home-subitle-color: rgba(0, 0, 0, 0.7);
+	--home-content-color: rgba(0, 0, 0, 0.85);
 }
 
 /* Dark Mode Variables */
 [data-theme="dark"] {
 	--background: rgb(35, 39, 42);
-	--navbar: #2c2f33;
+	--navbar: rgb(44, 47, 51);
 	--text-primary: rgb(237, 239, 241);
-	--text-secondary: rgb(88, 101, 242);
-	--accent: darkred;
+	--text-secondary: rgb(141, 136, 221);
+	--button-text-color: rgb(237, 239, 241);
+	--button-highlight: rgba(141, 136, 221, 0.8);
 
 	--modal-lock-color-raw: 237, 239, 241;
 
 	--box-shadow-color: rgba(231, 231, 255, 0.1);
+
+	--home-subitle-color: rgba(237, 239, 241, 0.8);
+	--home-content-color: rgba(237, 239, 241, 0.6);
 }
 
 /* Parent Styles */
@@ -47,6 +55,8 @@ html {
 .app {
 	position: relative;
 	color: var(--text-primary);
+	background-image: url("/src/images/bg.png");
+	background-size: 100vw;
 	background-color: var(--background);
 	font-size: large;
 	font-weight: bold;
@@ -72,20 +82,15 @@ html {
 	left: 0.5rem;
 }
 
-.static-icons-left .icon {
-	padding-bottom: 1.5rem;
-}
-
 .static-icons-right {
-	height: 250px;
 	right: 0.5rem;
 }
 
 .static-icons-right .email {
-	transform: rotate(90deg);
-	padding-bottom: 0.25rem;
 	font-size: 0.75rem;
 	font-weight: 400;
+	writing-mode: vertical-lr;
+	padding-left: 0.25rem;
 }
 
 .static-icons-right .email a {
@@ -98,6 +103,8 @@ html {
 	cursor: pointer;
 	-webkit-user-select: none;
 	user-select: none;
+	transition: all var(--transition-time);
+	padding-bottom: 1.5rem;
 }
 
 .static-icons-left .icon a,
@@ -114,6 +121,18 @@ html {
 	transition: all var(--transition-time);
 }
 
+.static-icons-left .icon:hover,
+.static-icons-left .icon:active {
+	transform: translate(0px, -5px);
+	transition: all var(--transition-time);
+}
+
+.static-icons-right .email:hover,
+.static-icons-right .email:active {
+	transform: translate(0px, -5px);
+	transition: all var(--transition-time);
+}
+
 .divider {
 	width: 1px;
 	height: 6.5rem;
@@ -124,11 +143,11 @@ html {
 /* Nav Bar Styles */
 .navbar {
 	display: flex;
+	justify-content: space-between;
 	position: fixed;
 	top: 0;
 	z-index: 10;
 	width: 100%;
-	justify-content: flex-end;
 	padding: 0 0.75rem;
 	box-shadow: 0 7px 29px 0 var(--box-shadow-color);
 	background-color: var(--navbar);
@@ -141,6 +160,33 @@ html {
 	text-decoration: none;
 }
 
+.avatar-container {
+	display: flex;
+	align-items: center;
+}
+
+.site-avatar {
+	height: 3.5rem;
+	padding: 0.25rem;
+	transition: all var(--transition-time);
+}
+
+.nav-first-name::before,
+.nav-last-name {
+	font-size: 1.15rem;
+	padding-left: 0.25rem;
+}
+
+.nav-first-name::before {
+	content: "Nichalus";
+	color: var(--text-secondary);
+}
+
+.nav-last-name {
+	padding-right: 0.25rem;
+	font-weight: 400;
+}
+
 .navbar-links {
 	display: flex;
 	flex-direction: row;
@@ -149,9 +195,14 @@ html {
 	user-select: none;
 }
 
-.navbar-links li:hover,
-.navbar-links li:active {
+.navbar-links li:not(.do-not-bounce):hover,
+.navbar-links li:not(.do-not-bounce):active {
 	color: var(--text-secondary);
+	transform: translate(0px, -5px);
+	transition: all var(--transition-time);
+}
+
+.navbar-links li {
 	transition: all var(--transition-time);
 }
 
@@ -175,7 +226,8 @@ html {
 
 .resume-download:hover,
 .resume-download:active {
-	background-color: var(--text-secondary);
+	color: var(--button-text-color);
+	background-color: var(--button-highlight);
 }
 
 .theme-button {
@@ -188,6 +240,7 @@ html {
 .theme-button:hover,
 .theme-button:active {
 	color: var(--text-secondary);
+	transition: all var(--transition-time);
 }
 
 .theme-icon {
@@ -209,7 +262,7 @@ html {
 	box-shadow: 0 7px 29px 0 var(--box-shadow-color);
 	background-color: var(--navbar);
 	overflow-x: hidden;
-	padding-top: 1.1rem;
+	padding-top: 0.75rem;
 	transition: var(--transition-time);
 }
 
@@ -257,6 +310,44 @@ html {
 	cursor: pointer;
 }
 
+.side-avatar-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	margin-bottom: 0.75rem;
+	margin-top: 0.75rem;
+}
+
+.side-site-avatar {
+	margin-right: 0.75rem;
+	height: 3.5rem;
+	transition: all var(--transition-time);
+}
+
+.side-nav-divider {
+	height: 1px;
+	width: 12rem;
+	margin: 0 auto;
+	background-color: var(--text-primary);
+	transition: all var(--transition-time);
+}
+
+.side-nav-first-name,
+.side-nav-last-name {
+	font-size: 1.25rem;
+	padding-left: 0.25rem;
+}
+
+.side-nav-first-name {
+	color: var(--text-secondary);
+}
+
+.side-nav-last-name {
+	padding-right: 0.25rem;
+	font-weight: 400;
+}
+
 .side-navbar-links-top .theme-button {
 	padding-right: 0.75rem;
 }
@@ -279,25 +370,36 @@ html {
 .side-navbar-links-top {
 	flex-direction: row;
 	justify-content: space-around;
+	margin-bottom: 0.75rem;
 }
 
 .side-navbar-links {
+	display: flex;
 	flex-direction: column;
-	padding-top: 0.5rem;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
 }
 
 .side-navbar-links li:hover,
 .side-navbar-links li:active {
 	color: var(--text-secondary);
+	border-color: var(--text-primary);
+	transform: translate(0px, -5px);
 	transition: all var(--transition-time);
 }
 
 .side-navbar-links li {
 	display: flex;
-	align-items: center;
+	justify-content: center;
 	font-size: 0.75rem;
 	margin: 0.5rem 0.75rem;
 	cursor: pointer;
+	width: 180px;
+	border-left: 2px solid;
+	border-right: 2px solid;
+	border-color: var(--navbar);
+	transition: all var(--transition-time);
 }
 
 /* Page Body Styles */
@@ -317,20 +419,86 @@ html {
 
 .section {
 	color: var(--text-primary);
-	height: 1000px;
+	margin-right: 150px;
+	margin-left: 150px;
+	max-width: 1000px;
+}
+
+/* Home Page Styles */
+
+#home {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	min-height: 100vh;
+	align-items: flex-start;
+	padding-bottom: 150px;
+}
+
+.home-header {
+	font-size: 3rem;
+}
+
+.home-subtitle {
+	font-size: 2rem;
+	color: var(--home-subitle-color);
+}
+
+.home-content {
+	padding-top: 1.5rem;
+	padding-bottom: 2.5rem;
+	font-weight: 500;
+	font-size: 0.75rem;
+	color: var(--home-content-color);
+	max-width: 550px;
+	line-height: 1.25rem;
+}
+
+.home-resume-download {
+	background: transparent;
+	border: 2px solid var(--text-primary);
+	border-radius: 0.25rem;
+	padding: 0.75rem 1.3rem;
+	font-size: 0.75rem;
+	font-weight: 600;
+	transition: all var(--transition-time);
+	color: var(--text-secondary);
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.home-resume-download:hover,
+.home-resume-download:active {
+	background-color: var(--button-highlight);
+	color: var(--button-text-color);
+	cursor: pointer;
+}
+
+.home-resume-download a {
+	color: inherit;
+	font-size: inherit;
+	text-decoration: none;
+}
+
+.highlight {
+	color: var(--text-secondary);
+}
+
+.bold {
+	font-weight: bold;
 }
 
 /* Media Queries */
 
 /* Hide Side Nav on Screen Resize */
-@media (min-width: 476px) {
+@media (min-width: 641px) {
 	.side-navbar {
 		width: 0;
 	}
 }
 
-/* Shrink Navbar and Static Side Content Disappears */
-@media (max-width: 800px) {
+/* Mid-tier resize */
+@media (max-width: 850px) {
 	.navbar-links li,
 	.resume-download {
 		margin: 0.25rem 0.5rem;
@@ -342,6 +510,10 @@ html {
 	.page-body {
 		margin: 2.75rem auto;
 	}
+	.section {
+		margin-right: 75px;
+		margin-left: 75px;
+	}
 	.static-icons-left .icon a,
 	.static-icons-right .email a {
 		color: rgba(var(--modal-lock-color-raw), 0);
@@ -351,10 +523,23 @@ html {
 		background-color: rgba(var(--modal-lock-color-raw), 0);
 		z-index: -1;
 	}
+	.site-avatar {
+		height: 2.5rem;
+		padding: 0.25rem;
+		transition: all var(--transition-time);
+	}
+	.nav-first-name::before,
+	.nav-last-name {
+		font-size: 1rem;
+		transition: all var(--transition-time);
+	}
+	.nav-first-name::before {
+		content: "Nic";
+	}
 }
 
 /* Mobile Screens */
-@media (max-width: 475px) {
+@media (max-width: 640px) {
 	html {
 		scroll-padding-top: 1rem;
 	}
@@ -366,5 +551,15 @@ html {
 	}
 	.page-body {
 		margin: 0;
+	}
+	.section {
+		margin-right: 75px;
+		margin-left: 75px;
+	}
+	.home-header {
+		font-size: 2.5rem;
+	}
+	.home-subtitle {
+		font-size: 1.5rem;
 	}
 }

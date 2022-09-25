@@ -1,7 +1,7 @@
 function About() {
 	return (
 		<div id="about" className="section">
-			<h1>About</h1>
+			<h1 className="section-title">About</h1>
 		</div>
 	);
 }
