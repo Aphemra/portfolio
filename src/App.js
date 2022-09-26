@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
 	const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+	const resumePDFLink = "https://drive.google.com/file/d/1AnbkQUZR-gCo5-qJsqJzUFEgjGvexkA9/view?usp=sharing";
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
 
 	function switchTheme() {
@@ -16,9 +17,9 @@ function App() {
 
 	return (
 		<div className="app" data-theme={theme}>
-			<NavBar theme={theme} switchTheme={switchTheme} />
+			<NavBar theme={theme} switchTheme={switchTheme} resumePDFLink={resumePDFLink} />
 			<div className="page-body">
-				<Home />
+				<Home resumePDFLink={resumePDFLink} />
 				<About />
 				<Portfolio />
 				<Contact />

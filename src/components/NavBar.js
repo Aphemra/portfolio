@@ -7,9 +7,7 @@ import MenuButton from "./MenuButton";
 import lightModeAvatar from "../images/lmAvatar.png";
 import darkModeAvatar from "../images/dmAvatar.png";
 
-function NavBar({ theme, switchTheme }) {
-	const resumePDFLink = "https://drive.google.com/file/d/1AnbkQUZR-gCo5-qJsqJzUFEgjGvexkA9/view?usp=sharing";
-
+function NavBar({ theme, switchTheme, resumePDFLink }) {
 	function toggleMenu() {
 		const sideNavElementClasses = document.getElementsByClassName("side-navbar")[0].className;
 		document.getElementsByClassName("side-navbar")[0].className =

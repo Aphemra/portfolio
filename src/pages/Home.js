@@ -1,4 +1,4 @@
-function Home() {
+function Home({ resumePDFLink }) {
 	return (
 		<div id="home" className="section">
 			<h1 className="home-header">
@@ -15,11 +15,7 @@ function Home() {
 				and would appreciate a look at what I have to offer.
 			</p>
 			<button type="button" title="Download my resume!" className="home-resume-download">
-				<a
-					target="_blank"
-					rel="noreferrer"
-					href="https://drive.google.com/file/d/1AnbkQUZR-gCo5-qJsqJzUFEgjGvexkA9/view?usp=sharing"
-				>
+				<a target="_blank" rel="noreferrer" href={resumePDFLink}>
 					Checkout my Resume!
 				</a>
 			</button>
