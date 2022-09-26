@@ -1,17 +1,20 @@
 import Project from "../components/Project";
-import lightModeAvatar from "../images/lmAvatar.png";
 
-function Portfolio() {
+function Portfolio({ projectsList }) {
 	return (
 		<div id="portfolio" className="section">
 			<h1 className="portfolio-title">Portfolio</h1>
 			<div className="portfolio-projects">
-				<Project
-					title="Project 1"
-					description="A Project's Description"
-					imageSource={lightModeAvatar}
-					skillsUsed={["Javascript", "HTML", "CSS", "React"]}
-				/>
+				{projectsList.map((project) => {
+					return (
+						<Project
+							title={project.title}
+							description={project.description}
+							imageSource={project.imageSource}
+							skillsUsed={project.skillsUsed}
+						/>
+					);
+				})}
 			</div>
 		</div>
 	);

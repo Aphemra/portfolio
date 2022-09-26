@@ -6,7 +6,7 @@ function Project({ title, description, imageSource, skillsUsed }) {
 			<div className="project-description">{description}</div>
 			<div className="project-skills">
 				{skillsUsed.map((skill) => {
-					return <h3>skill</h3>;
+					return <h3>{skill}</h3>;
 				})}
 			</div>
 		</div>

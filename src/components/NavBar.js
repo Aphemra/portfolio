@@ -72,15 +72,17 @@ function NavBar({ theme, switchTheme, resumePDFLink }) {
 				</ul>
 				<div className="side-nav-divider"></div>
 				<div className="side-avatar-container">
-					<img
-						className="side-site-avatar"
-						src={theme === "light" ? lightModeAvatar : darkModeAvatar}
-						alt="My custom avatar."
-					/>
-					<div className="side-nav-name">
-						<span className="side-nav-first-name">Nic</span>
-						<span className="side-nav-last-name">Kibler</span>
-					</div>
+					<a href="https://nichal.us/">
+						<img
+							className="side-site-avatar"
+							src={theme === "light" ? lightModeAvatar : darkModeAvatar}
+							alt="My custom avatar."
+						/>
+						<div className="side-nav-name">
+							<span className="side-nav-first-name">Nic</span>
+							<span className="side-nav-last-name">Kibler</span>
+						</div>
+					</a>
 				</div>
 				<div className="side-nav-divider"></div>
 				<ul className="side-navbar-links">
@@ -109,13 +111,15 @@ function NavBar({ theme, switchTheme, resumePDFLink }) {
 			</nav>
 			<nav className="navbar">
 				<div className="avatar-container">
-					<img
-						className="site-avatar"
-						src={theme === "light" ? lightModeAvatar : darkModeAvatar}
-						alt="My custom avatar."
-					/>
-					<span className="nav-first-name"></span>
-					<span className="nav-last-name">Kibler</span>
+					<a href="https://nichal.us/">
+						<img
+							className="site-avatar"
+							src={theme === "light" ? lightModeAvatar : darkModeAvatar}
+							alt="My custom avatar."
+						/>
+						<span className="nav-first-name"></span>
+						<span className="nav-last-name">Kibler</span>
+					</a>
 				</div>
 				<ul className="navbar-links">
 					<li>

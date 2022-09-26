@@ -10,7 +10,7 @@
 	font-family: "Open Sans", sans-serif;
 }
 
-/* Light Mode Variables */
+/*#region Light Mode Variables */
 :root {
 	--transition-time: 0.5s;
 
@@ -28,8 +28,9 @@
 	--home-subitle-color: rgba(0, 0, 0, 0.7);
 	--home-content-color: rgba(0, 0, 0, 0.85);
 }
+/*#endregion*/
 
-/* Dark Mode Variables */
+/*#region Dark Mode Variables */
 [data-theme="dark"] {
 	--background: rgb(35, 39, 42);
 	--navbar: rgb(44, 47, 51);
@@ -45,8 +46,9 @@
 	--home-subitle-color: rgba(237, 239, 241, 0.8);
 	--home-content-color: rgba(237, 239, 241, 0.6);
 }
+/*#endregion*/
 
-/* Parent Styles */
+/*#region Parent Styles */
 html {
 	scroll-padding-top: 5rem;
 	scroll-behavior: smooth;
@@ -63,8 +65,9 @@ html {
 	height: 100%;
 	transition: all var(--transition-time);
 }
+/*#endregion*/
 
-/* Static Side Content Styles */
+/*#region Static Side Content Styles */
 .static-icons-left,
 .static-icons-right {
 	display: flex;
@@ -139,8 +142,9 @@ html {
 	background-color: var(--text-primary);
 	transition: all var(--transition-time);
 }
+/*#endregion*/
 
-/* Nav Bar Styles */
+/*#region Nav Bar Styles */
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -161,6 +165,13 @@ html {
 }
 
 .avatar-container {
+	display: flex;
+	align-items: center;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.avatar-container a {
 	display: flex;
 	align-items: center;
 }
@@ -249,9 +260,9 @@ html {
 	height: 1.1rem;
 	vertical-align: -0.5rem;
 }
+/*#endregion*/
 
-/* Side Navigation Styles */
-
+/*#region Side Navigation Styles */
 .side-navbar {
 	height: 100%;
 	width: 13rem;
@@ -401,9 +412,9 @@ html {
 	border-color: var(--navbar);
 	transition: all var(--transition-time);
 }
+/*#endregion*/
 
-/* Page Body Styles */
-
+/*#region Page Body Styles */
 .page-body {
 	display: flex;
 	flex-direction: column;
@@ -423,9 +434,9 @@ html {
 	margin-left: 150px;
 	max-width: 1000px;
 }
+/*#endregion*/
 
-/* Home Page Styles */
-
+/*#region Home Page Styles */
 #home {
 	display: flex;
 	justify-content: center;
@@ -487,17 +498,101 @@ html {
 .bold {
 	font-weight: bold;
 }
+/*#endregion*/
 
-/* Media Queries */
+/*#region About Page Styles */
+#about {
+	display: flex;
+	flex-direction: column;
+}
 
-/* Hide Side Nav on Screen Resize */
+.about-title {
+	font-size: 2rem;
+}
+
+.about-me {
+	display: flex;
+	flex-direction: row;
+	margin-top: 0.75rem;
+}
+
+.about-description {
+	font-weight: 500;
+	font-size: 0.75rem;
+}
+
+.about-photo {
+	width: 12.5rem;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+}
+
+.about-skills {
+	display: flex;
+	flex-direction: column;
+}
+
+/*TODO: Add "Confidence Meter" to each skill.
+        Add Skill.js component.
+        Add Ability to tab menu to display:
+            - All Skils
+            - Web Skills
+            - Game Skills
+            - General Skills
+        Color code the above categories regardless
+*/
+
+.skill {
+	list-style: none;
+}
+
+.about-web-skills ul {
+	display: flex;
+}
+
+.about-game-skills {
+}
+
+.about-shared-skills {
+}
+/*#endregion*/
+
+/*#region Portfolio Page Styles */
+
+#portfolio {
+}
+
+.portfolio-projects {
+	display: grid;
+	width: 1000px;
+	grid-template-columns: 1fr 1fr 1fr; /* Change this later */
+}
+
+.project-container {
+	margin: 0 1rem;
+	margin-bottom: 1rem;
+	border: 2px dotted red;
+}
+
+.project-image {
+	width: 5rem;
+}
+/*#endregion*/
+
+/*#region Contact Page Styles */
+/*#endregion*/
+
+/*#region Media Queries */
+
+/*#region Hide Side Nav on Screen Resize */
 @media (min-width: 641px) {
 	.side-navbar {
 		width: 0;
 	}
 }
+/*#endregion*/
 
-/* Mid-tier resize */
+/*#region Mid-tier resize */
 @media (max-width: 850px) {
 	.navbar-links li,
 	.resume-download {
@@ -537,8 +632,9 @@ html {
 		content: "Nic";
 	}
 }
+/*#endregion*/
 
-/* Mobile Screens */
+/*#region Mobile Screens */
 @media (max-width: 640px) {
 	html {
 		scroll-padding-top: 1rem;
@@ -563,3 +659,5 @@ html {
 		font-size: 1.5rem;
 	}
 }
+/*#endregion*/
+/*#endregion*/
