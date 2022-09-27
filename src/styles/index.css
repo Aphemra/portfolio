@@ -516,45 +516,132 @@ html {
 	margin-top: 0.75rem;
 }
 
+.about-photo {
+	width: 12.5rem;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+	filter: grayscale(100%);
+	transition: all var(--transition-time);
+}
+
+.about-photo:hover {
+	filter: grayscale(0);
+	transition: all var(--transition-time);
+}
+
 .about-description {
 	font-weight: 500;
 	font-size: 0.75rem;
 }
 
-.about-photo {
-	width: 12.5rem;
-	margin-right: 1rem;
+.about-skills {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	border: 2px solid var(--text-primary);
+	border-radius: 0.5rem;
+	background-color: var(--navbar);
+	padding: 1rem;
+}
+
+.about-skills-titles {
+	display: flex;
+	flex-direction: column;
+	list-style: none;
 	margin-bottom: 1rem;
 }
 
-.about-skills {
+.about-skills-titles li {
 	display: flex;
-	flex-direction: column;
+	align-items: center;
+	font-size: 1rem;
+	font-weight: 500;
+	margin-left: 0.75rem;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	height: 1.5rem;
+	width: 10rem;
+	cursor: pointer;
+	z-index: 2;
+	transition: all var(--transition-time);
+}
+
+.about-skills-titles li:hover,
+.about-skills-titles li.selected {
+	color: var(--text-secondary);
+	transition: all var(--transition-time);
+}
+
+.indicator-edge {
+	position: absolute;
+	top: 1.5rem;
+	height: 1.5rem;
+	width: 0.25rem;
+	z-index: 1;
+	background-color: var(--text-secondary);
+	transition: all var(--transition-time);
+}
+
+.indicator-bg {
+	position: absolute;
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	top: 1.5rem;
+	height: 1.5rem;
+	width: 8rem;
+	z-index: 0;
+	background-color: var(--box-shadow-color);
+	transition: all var(--transition-time);
+}
+
+.skills {
+	display: flex;
+	align-content: flex-start;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style: none;
+	min-height: 10rem;
+	margin-top: 0.5rem;
+}
+
+.skill {
+	display: flex;
+	white-space: nowrap;
+	align-items: center;
+
+	font-size: 1rem;
+	font-weight: 400;
+	margin-right: 1rem;
+	margin-bottom: 1rem;
+
+	border: 2px solid var(--text-secondary);
+	border-radius: 0.5rem;
+	height: 2rem;
+	padding: 0.25rem 1rem;
+
+	transition: all var(--transition-time) ease-in-out;
+}
+
+.skill.hide {
+	opacity: 0;
+	font-size: 0;
+	padding: 0;
+	margin: 0;
+	border-color: rgba(inherit, inherit, inherit, 0);
+	border: 0px;
+
+	transition: all 0.5s;
 }
 
 /*TODO: Add "Confidence Meter" to each skill.
         Add Skill.js component.
         Add Ability to tab menu to display:
-            - All Skils
+            - All Skills
             - Web Skills
             - Game Skills
             - General Skills
         Color code the above categories regardless
 */
-
-.skill {
-	list-style: none;
-}
-
-.about-web-skills ul {
-	display: flex;
-}
-
-.about-game-skills {
-}
-
-.about-shared-skills {
-}
 /*#endregion*/
 
 /*#region Portfolio Page Styles */
@@ -659,5 +746,12 @@ html {
 		font-size: 1.5rem;
 	}
 }
+
+@media (min-width: 1200px) {
+	#about {
+		min-width: 1100px;
+	}
+}
+
 /*#endregion*/
 /*#endregion*/

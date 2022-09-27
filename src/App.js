@@ -1,3 +1,4 @@
+import uuid from "react-uuid";
 import useLocalState from "./hooks/useLocalState";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -14,9 +15,151 @@ function App() {
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
 
 	// Editable Resume Fields
-	const webSkillsList = ["JavaScript", "HTML", "CSS", "React"];
-	const gameSkillsList = ["C#", "Java", "Unity", "Design Patterns"];
-	const sharedSkillsList = ["Git", "Github", "Responsive Design"];
+	// const allSkillsList = [
+	// 	// WEB SKILLS
+	// 	{
+	// 		id: uuid(),
+	// 		category: "web",
+	// 		name: "JavaScript",
+	// 		confidence: 0.5,
+	// 	},
+	// 	{
+	// 		id: uuid(),
+	// 		category: "web",
+	// 		name: "HTML",
+	// 		confidence: 0.75,
+	// 	},
+	// 	{
+	// 		id: uuid(),
+	// 		category: "web",
+	// 		name: "CSS",
+	// 		confidence: 0.25,
+	// 	},
+	// 	{
+	// 		id: uuid(),
+	// 		category: "web",
+	// 		name: "React",
+	// 		confidence: 1,
+	// 	},
+	// 	// GAME SKILLS
+	// 	{
+	// 		id: uuid(),
+	// 		category: "game",
+	// 		name: "C#",
+	// 		confidence: 0.5,
+	// 	},
+	// 	{
+	// 		id: uuid(),
+	// 		category: "game",
+	// 		name: "Java",
+	// 		confidence: 0.75,
+	// 	},
+	// 	{
+	// 		id: uuid(),
+	// 		category: "game",
+	// 		name: "Unity",
+	// 		confidence: 0.25,
+	// 	},
+	// 	// SHARED SKILLS
+	// 	{
+	// 		id: uuid(),
+	// 		category: "shared",
+	// 		name: "Git",
+	// 		confidence: 0.5,
+	// 	},
+	// 	{
+	// 		id: uuid(),
+	// 		category: "shared",
+	// 		name: "Github",
+	// 		confidence: 0.75,
+	// 	},
+	// 	{
+	// 		id: uuid(),
+	// 		category: "shared",
+	// 		name: "Design Patterns",
+	// 		confidence: 0.25,
+	// 	},
+	// 	{
+	// 		id: uuid(),
+	// 		category: "shared",
+	// 		name: "Responsive Design",
+	// 		confidence: 1,
+	// 	},
+	// ];
+	const allSkillsList = [
+		{
+			id: uuid(),
+			category: "web",
+			name: "JavaScript",
+			confidence: 0.5,
+		},
+		{
+			id: uuid(),
+			category: "shared",
+			name: "Responsive Design",
+			confidence: 1,
+		},
+		{
+			id: uuid(),
+			category: "web",
+			name: "HTML",
+			confidence: 0.75,
+		},
+		{
+			id: uuid(),
+			category: "shared",
+			name: "Github",
+			confidence: 0.75,
+		},
+		{
+			id: uuid(),
+			category: "web",
+			name: "CSS",
+			confidence: 0.25,
+		},
+		{
+			id: uuid(),
+			category: "game",
+			name: "C#",
+			confidence: 0.5,
+		},
+		{
+			id: uuid(),
+			category: "shared",
+			name: "Design Patterns",
+			confidence: 0.25,
+		},
+		{
+			id: uuid(),
+			category: "game",
+			name: "Java",
+			confidence: 0.75,
+		},
+		{
+			id: uuid(),
+			category: "web",
+			name: "React",
+			confidence: 1,
+		},
+		{
+			id: uuid(),
+			category: "game",
+			name: "Unity",
+			confidence: 0.25,
+		},
+		{
+			id: uuid(),
+			category: "web",
+			name: "HTML",
+			confidence: 0.75,
+		},
+		{
+			id: uuid(),
+			category: "shared",
+			name: "Git",
+			confidence: 0.5,
+		},
+	];
 	const projectsList = [
 		{
 			title: "Project 1",
@@ -54,7 +197,7 @@ function App() {
 			<NavBar theme={theme} switchTheme={switchTheme} resumePDFLink={resumePDFLink} />
 			<div className="page-body">
 				<Home resumePDFLink={resumePDFLink} />
-				<About webSkillsList={webSkillsList} gameSkillsList={gameSkillsList} sharedSkillsList={sharedSkillsList} />
+				<About allSkillsList={allSkillsList} />
 				<Portfolio projectsList={projectsList} />
 				<Contact />
 			</div>
