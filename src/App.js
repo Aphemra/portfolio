@@ -15,6 +15,10 @@ function App() {
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
 
 	// Editable Resume Fields
+	// Extract these out into three lists and then
+	// combine them back into the allSkillsList using spread
+	// operator. Then take this list and shuffle it using
+	// custom function.
 	// const allSkillsList = [
 	// 	// WEB SKILLS
 	// 	{
@@ -91,67 +95,85 @@ function App() {
 			id: uuid(),
 			category: "web",
 			name: "JavaScript",
-			confidence: 0.5,
+			confidence: 0.65,
 		},
 		{
 			id: uuid(),
-			category: "shared",
+			category: "web",
 			name: "Responsive Design",
-			confidence: 1,
+			confidence: 0.7,
 		},
 		{
 			id: uuid(),
 			category: "shared",
 			name: "Github",
-			confidence: 0.75,
+			confidence: 0.9,
 		},
 		{
 			id: uuid(),
 			category: "web",
 			name: "CSS",
-			confidence: 0.25,
+			confidence: 0.65,
 		},
 		{
 			id: uuid(),
 			category: "game",
 			name: "C#",
-			confidence: 0.5,
+			confidence: 0.85,
 		},
 		{
 			id: uuid(),
 			category: "shared",
 			name: "Design Patterns",
-			confidence: 0.25,
+			confidence: 0.4,
+		},
+		{
+			id: uuid(),
+			category: "web",
+			name: "Express",
+			confidence: 0.2,
 		},
 		{
 			id: uuid(),
 			category: "game",
 			name: "Java",
-			confidence: 0.75,
+			confidence: 0.5,
 		},
 		{
 			id: uuid(),
 			category: "web",
 			name: "React",
-			confidence: 1,
+			confidence: 0.65,
 		},
 		{
 			id: uuid(),
 			category: "game",
 			name: "Unity",
-			confidence: 0.25,
+			confidence: 0.75,
 		},
 		{
 			id: uuid(),
 			category: "web",
 			name: "HTML",
-			confidence: 0.75,
+			confidence: 0.85,
 		},
 		{
 			id: uuid(),
 			category: "shared",
 			name: "Git",
-			confidence: 0.5,
+			confidence: 0.7,
+		},
+		{
+			id: uuid(),
+			category: "web",
+			name: "Accessibility",
+			confidence: 0.35,
+		},
+		{
+			id: uuid(),
+			category: "web",
+			name: "Node",
+			confidence: 0.4,
 		},
 	];
 	const projectsList = [

@@ -566,26 +566,107 @@ html {
 	line-height: 1.25rem;
 }
 
-.about-skills {
+.about-skills-horizontal,
+.about-skills-vertical {
 	position: relative;
 	display: flex;
-	flex-direction: row;
 	border: 2px solid var(--text-primary);
 	border-radius: 0.5rem;
 	background-color: var(--navbar);
-	padding: 1rem;
-	margin: 1rem auto;
 	width: 100%;
 	max-width: 800px;
 }
 
-.about-skills-titles {
+.about-skills-horizontal {
+	flex-direction: row;
+	padding: 1rem;
+	margin: 1rem auto;
+}
+
+.about-skills-vertical {
+	display: none;
+	flex-direction: column;
+	padding: 1rem;
+	margin: 1rem auto;
+	width: 16rem;
+}
+
+.about-skills-titles.vertical {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	list-style: none;
+	margin-bottom: 1.5rem;
+}
+
+.about-skills-titles.vertical li {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 0.75rem;
+	font-weight: 500;
+	width: 3.4rem;
+	cursor: pointer;
+	z-index: 2;
+	transition: all var(--transition-time);
+}
+
+.about-skills-titles.vertical li:hover,
+.about-skills-titles.vertical li.selected {
+	color: var(--text-secondary);
+	transition: all var(--transition-time);
+}
+
+.indicator-edge.vertical {
+	position: absolute;
+	left: 1.1rem;
+	top: 0.8rem;
+	height: 0.25rem;
+	width: 3.4rem;
+	z-index: 1;
+	background-color: var(--text-secondary);
+	transition: all var(--transition-time);
+}
+
+.indicator-bg.vertical {
+	position: absolute;
+	border-bottom-left-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	left: 1.1rem;
+	height: 2rem;
+	width: 3.4rem;
+	z-index: 0;
+	background-color: var(--box-shadow-color);
+	transition: all var(--transition-time);
+}
+
+.skills-divider.vertical {
+	position: absolute;
+	top: 3.75rem;
+	left: 5%;
+	width: 90%;
+	height: 3px;
+	border-radius: 10rem;
+	background-color: var(--text-primary);
+}
+
+.skills.vertical {
+	display: flex;
+	align-content: flex-start;
+	flex-direction: row;
+	flex-wrap: wrap;
+	list-style: none;
+	min-height: 10rem;
+	margin-top: 0.25rem;
+}
+
+.about-skills-titles.horizontal {
 	display: flex;
 	flex-direction: column;
 	list-style: none;
 }
 
-.about-skills-titles li {
+.about-skills-titles.horizontal li {
 	display: flex;
 	align-items: center;
 	font-size: 0.75rem;
@@ -601,13 +682,13 @@ html {
 	transition: all var(--transition-time);
 }
 
-.about-skills-titles li:hover,
-.about-skills-titles li.selected {
+.about-skills-titles.horizontal li:hover,
+.about-skills-titles.horizontal li.selected {
 	color: var(--text-secondary);
 	transition: all var(--transition-time);
 }
 
-.indicator-edge {
+.indicator-edge.horizontal {
 	position: absolute;
 	top: 1.5rem;
 	height: 1rem;
@@ -617,7 +698,7 @@ html {
 	transition: all var(--transition-time);
 }
 
-.indicator-bg {
+.indicator-bg.horizontal {
 	position: absolute;
 	border-top-right-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
@@ -629,7 +710,7 @@ html {
 	transition: all var(--transition-time);
 }
 
-.skills-divider {
+.skills-divider.horizontal {
 	position: absolute;
 	left: 8rem;
 	top: 5%;
@@ -639,7 +720,7 @@ html {
 	background-color: var(--text-primary);
 }
 
-.skills {
+.skills.horizontal {
 	display: flex;
 	align-content: flex-start;
 	flex-direction: row;
@@ -739,12 +820,19 @@ html {
 /*#region Portfolio Page Styles */
 
 #portfolio {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10rem;
+	padding-top: 2rem;
+}
+
+.portfolio-title {
+	font-size: 2rem;
 }
 
 .portfolio-projects {
-	display: grid;
-	/* width: 1000px;
-	grid-template-columns: 1fr 1fr 1fr; Change this later */
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .project-container {
@@ -787,6 +875,10 @@ html {
 	.section {
 		margin-right: 75px;
 		margin-left: 75px;
+	}
+	.static-icons-left,
+	.static-icons-right {
+		z-index: -1;
 	}
 	.static-icons-left .icon a,
 	.static-icons-right .email a {
@@ -888,9 +980,11 @@ html {
 	.about-description {
 		max-width: 280px;
 	}
-	.about-skills {
-		padding: 1rem 0.5rem;
-		width: 16.1rem;
+	.about-skills-horizontal {
+		display: none;
+	}
+	.about-skills-vertical {
+		display: flex;
 	}
 	.skill {
 		white-space: unset;

@@ -3,7 +3,9 @@ import Project from "../components/Project";
 function Portfolio({ projectsList }) {
 	return (
 		<div id="portfolio" className="section">
-			<h1 className="portfolio-title">Portfolio</h1>
+			<h1 className="portfolio-title">
+				<span className="portfolio-title highlight">Portfolio</span>.
+			</h1>
 			<div className="portfolio-projects">
 				{projectsList.map((project) => {
 					return (
