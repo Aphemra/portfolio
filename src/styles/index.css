@@ -430,9 +430,9 @@ html {
 
 .section {
 	color: var(--text-primary);
-	margin-right: 150px;
-	margin-left: 150px;
-	max-width: 1000px;
+	margin-right: 200px;
+	margin-left: 200px;
+	max-width: 840px;
 }
 /*#endregion*/
 
@@ -504,6 +504,8 @@ html {
 #about {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 10rem;
+	padding-top: 2rem;
 }
 
 .about-title {
@@ -513,15 +515,32 @@ html {
 .about-me {
 	display: flex;
 	flex-direction: row;
+	align-items: flex-start;
 	margin-top: 0.75rem;
 }
 
-.about-photo {
-	width: 12.5rem;
+.about-photo-container {
+	position: relative;
+	min-width: 12.5rem;
+	float: left;
+	width: 40%;
 	margin-right: 1rem;
-	margin-bottom: 1rem;
+	border: 5px solid var(--text-secondary);
+	border-radius: 0.5rem;
+	transition: all var(--transition-time);
+}
+
+.about-photo {
+	width: 100%;
+	height: 100%;
+	margin-right: 1rem;
+	border-radius: 0.5rem;
 	filter: grayscale(100%);
 	transition: all var(--transition-time);
+}
+
+.photo-background {
+	position: absolute;
 }
 
 .about-photo:hover {
@@ -530,8 +549,21 @@ html {
 }
 
 .about-description {
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+.about-description p {
 	font-weight: 500;
 	font-size: 0.75rem;
+	line-height: 1.25rem;
+	color: var(--home-subtitle-color);
+}
+
+.about-description p span {
+	font-weight: 500;
+	font-size: 0.75rem;
+	line-height: 1.25rem;
 }
 
 .about-skills {
@@ -542,25 +574,27 @@ html {
 	border-radius: 0.5rem;
 	background-color: var(--navbar);
 	padding: 1rem;
+	margin: 1rem auto;
+	max-width: 800px;
 }
 
 .about-skills-titles {
 	display: flex;
 	flex-direction: column;
 	list-style: none;
-	margin-bottom: 1rem;
 }
 
 .about-skills-titles li {
 	display: flex;
 	align-items: center;
-	font-size: 1rem;
+	font-size: 0.75rem;
 	font-weight: 500;
 	margin-left: 0.75rem;
-	margin-top: 0.5rem;
-	margin-bottom: 0.5rem;
+	margin-right: 2rem;
+	margin-top: 0.25rem;
+	margin-bottom: 0.25rem;
 	height: 1.5rem;
-	width: 10rem;
+	width: 6rem;
 	cursor: pointer;
 	z-index: 2;
 	transition: all var(--transition-time);
@@ -575,7 +609,7 @@ html {
 .indicator-edge {
 	position: absolute;
 	top: 1.5rem;
-	height: 1.5rem;
+	height: 1rem;
 	width: 0.25rem;
 	z-index: 1;
 	background-color: var(--text-secondary);
@@ -587,11 +621,21 @@ html {
 	border-top-right-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
 	top: 1.5rem;
-	height: 1.5rem;
-	width: 8rem;
+	height: 1rem;
+	width: 6rem;
 	z-index: 0;
 	background-color: var(--box-shadow-color);
 	transition: all var(--transition-time);
+}
+
+.skills-divider {
+	position: absolute;
+	left: 8rem;
+	top: 5%;
+	height: 90%;
+	width: 3px;
+	border-radius: 10rem;
+	background-color: var(--text-primary);
 }
 
 .skills {
@@ -606,11 +650,10 @@ html {
 
 .skill {
 	display: flex;
+	position: relative;
 	white-space: nowrap;
 	align-items: center;
 
-	font-size: 1rem;
-	font-weight: 400;
 	margin-right: 1rem;
 	margin-bottom: 1rem;
 
@@ -619,29 +662,77 @@ html {
 	height: 2rem;
 	padding: 0.25rem 1rem;
 
+	cursor: pointer;
+
 	transition: all var(--transition-time) ease-in-out;
 }
 
-.skill.hide {
+.skill-name {
+	font-size: 0.75rem;
+	font-weight: 400;
+	min-width: 1.75rem;
+	text-align: center;
+}
+
+.skill.hide,
+.skill.hide .skill-name {
 	opacity: 0;
 	font-size: 0;
 	padding: 0;
 	margin: 0;
+	overflow: hidden;
+	width: 0;
 	border-color: rgba(inherit, inherit, inherit, 0);
 	border: 0px;
-
 	transition: all 0.5s;
 }
 
-/*TODO: Add "Confidence Meter" to each skill.
-        Add Skill.js component.
-        Add Ability to tab menu to display:
-            - All Skills
-            - Web Skills
-            - Game Skills
-            - General Skills
-        Color code the above categories regardless
-*/
+.skill:hover {
+	height: 3rem;
+	padding: 0 1rem;
+	padding-top: 0.25rem;
+	padding-bottom: 1rem;
+}
+
+.skill:hover .confidence-title,
+.skill:hover .confidence-meter,
+.skill:hover .confidence-meter.background,
+.skill:active .confidence-title,
+.skill:active .confidence-meter,
+.skill:active .confidence-meter.background {
+	opacity: 1;
+}
+
+.confidence-title {
+	opacity: 0;
+	position: absolute;
+	font-size: 0.5rem;
+	font-weight: 100;
+	bottom: 7px;
+	left: 10%;
+	transition: all 0.5s;
+}
+
+.confidence-meter {
+	opacity: 0;
+	position: absolute;
+	bottom: 5px;
+	left: 10%;
+	height: 3px;
+	border-radius: 2rem;
+	background-color: yellow;
+	width: 0;
+	z-index: 1;
+	transition: all 0.5s;
+}
+
+.confidence-meter.background {
+	opacity: 0;
+	background-color: white;
+	width: 80%;
+	z-index: 0;
+	transition: all 0.5s;
+}
 /*#endregion*/
 
 /*#region Portfolio Page Styles */
@@ -651,8 +742,8 @@ html {
 
 .portfolio-projects {
 	display: grid;
-	width: 1000px;
-	grid-template-columns: 1fr 1fr 1fr; /* Change this later */
+	/* width: 1000px;
+	grid-template-columns: 1fr 1fr 1fr; Change this later */
 }
 
 .project-container {
@@ -745,13 +836,73 @@ html {
 	.home-subtitle {
 		font-size: 1.5rem;
 	}
-}
-
-@media (min-width: 1200px) {
-	#about {
-		min-width: 1100px;
+	.about-me {
+		flex-direction: column;
+		align-items: center;
+	}
+	.about-photo-container {
+		float: none;
+		margin: 0 auto;
+		margin-bottom: 1rem;
 	}
 }
+/*#endregion*/
 
+/*#region Small Mobile Screens */
+@media (max-width: 500px) {
+	html {
+		scroll-padding-top: 1rem;
+	}
+	.navbar {
+		display: none;
+	}
+	.side-navbar-button {
+		display: block;
+	}
+	.page-body {
+		margin: 0;
+	}
+	.section {
+		margin-right: 25px;
+		margin-left: 25px;
+	}
+	.home-header {
+		font-size: 2.5rem;
+	}
+	.home-subtitle {
+		font-size: 1.5rem;
+	}
+	.about-me {
+		flex-direction: column;
+		align-items: center;
+	}
+	.about-title {
+		text-align: center;
+	}
+	.about-photo-container {
+		float: none;
+		margin: 0 auto;
+		margin-bottom: 1rem;
+	}
+	.about-description {
+		max-width: 280px;
+	}
+	.about-skills {
+		padding: 1rem 0.5rem;
+		width: 16.1rem;
+	}
+	.skill {
+		white-space: unset;
+		margin-bottom: 0.5rem;
+		margin-right: 0.75rem;
+	}
+	.skill.hide,
+	.skill.hide .confidence-title {
+		height: 0;
+	}
+	.skill-name {
+		font-size: 0.6rem;
+	}
+}
 /*#endregion*/
 /*#endregion*/

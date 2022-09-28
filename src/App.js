@@ -101,12 +101,6 @@ function App() {
 		},
 		{
 			id: uuid(),
-			category: "web",
-			name: "HTML",
-			confidence: 0.75,
-		},
-		{
-			id: uuid(),
 			category: "shared",
 			name: "Github",
 			confidence: 0.75,
