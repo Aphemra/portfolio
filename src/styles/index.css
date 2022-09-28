@@ -575,6 +575,7 @@ html {
 	background-color: var(--navbar);
 	padding: 1rem;
 	margin: 1rem auto;
+	width: 100%;
 	max-width: 800px;
 }
 
