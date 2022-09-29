@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 
 import { webSkills, gameSkills, sharedSkills } from "./data/skillsData";
 import { projects } from "./data/projectsData";
+import Footer from "./components/Footer";
 
 function App() {
 	const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -33,8 +34,9 @@ function App() {
 				<Home resumePDFLink={resumePDFLink} />
 				<About allSkillsList={shuffledSkillsList()} />
 				<Portfolio projectsList={projects} />
-				<Contact />
+				<Contact resumePDFLink={resumePDFLink} />
 			</div>
+			<Footer />
 		</div>
 	);
 }

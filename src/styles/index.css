@@ -533,7 +533,7 @@ html {
 #about {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 10rem;
+	margin-bottom: 15rem;
 	padding-top: 2rem;
 }
 
@@ -842,8 +842,8 @@ html {
 #portfolio {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 10rem;
-	padding-top: 7.5rem;
+	margin-bottom: 16rem;
+	padding-top: 2rem;
 }
 
 .portfolio-title {
@@ -976,34 +976,126 @@ html {
 #contact {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 18rem;
-	padding-top: 10rem;
+	margin-bottom: 10rem;
+	padding-bottom: 10rem;
+	padding-top: 2rem;
 }
 
 .contact-title {
 	font-size: 2rem;
 }
 
-.contact-button {
+.contact-right {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	margin-top: 1rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.contact-buttons {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.contact-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.contact-subtitle {
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.5rem;
+	margin-top: 0.75rem;
+	margin-bottom: 1rem;
+	color: var(--home-subtitle-color);
+}
+
+.contact-subtitle div {
+	margin-bottom: 0.25rem;
+}
+
+.contact-me-button,
+.contact-resume-button {
 	background: transparent;
 	border: 2px solid var(--text-primary);
 	border-radius: 0.25rem;
 	padding: 0.35rem 0.6rem;
 	transition: all var(--transition-time);
+	text-align: center;
+	margin-right: 0.75rem;
 	cursor: pointer;
 	-webkit-user-select: none;
 	user-select: none;
 }
 
-.contact-button a {
+.contact-me-button a,
+.contact-resume-button a {
+	display: flex;
+	font-size: 0.75rem;
+	font-weight: 500;
 	color: var(--text-primary);
 	text-decoration: none;
 }
 
-.contact-button:hover,
-.contact-button:active {
+.contact-me-button:hover,
+.contact-me-button:active,
+.contact-resume-button:hover,
+.contact-resume-button:active {
 	color: var(--button-text-color);
 	background-color: var(--button-highlight);
+}
+
+.contact-social-links {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	flex-grow: 3;
+}
+
+.contact-icon {
+	margin-left: 1.25rem;
+	cursor: pointer;
+	-webkit-user-select: none;
+	user-select: none;
+	transition: all var(--transition-time);
+}
+
+.contact-icon:hover a,
+.contact-icon:active a {
+	color: var(--text-secondary);
+	transition: all var(--transition-time);
+}
+
+.contact-icon a {
+	color: var(--text-primary);
+	transition: all var(--transition-time);
+}
+
+.contact-divider {
+	height: 3px;
+	width: 100%;
+	border-radius: 5rem;
+	background-color: var(--text-primary);
+}
+/*#endregion*/
+
+/*#region Footer Styles */
+#footer {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 0;
+	width: 100%;
+	height: 2rem;
+}
+
+.footer-text {
+	font-size: 0.75rem;
+	font-weight: 500;
 }
 /*#endregion*/
 
@@ -1067,6 +1159,19 @@ html {
 	}
 	.nav-first-name::before {
 		content: "Nic";
+	}
+	.contact-right {
+		flex-direction: column;
+		align-items: center;
+	}
+	.contact-resume-button {
+		margin-right: 0;
+	}
+	.contact-buttons {
+		margin-bottom: 1rem;
+	}
+	.contact-social-links > .contact-icon:first-child {
+		margin-left: 0;
 	}
 }
 /*#endregion*/
@@ -1169,6 +1274,16 @@ html {
 	}
 	.skill-name {
 		font-size: 0.6rem;
+	}
+	.contact-title {
+		margin: 0 auto;
+	}
+	.contact-subtitle {
+		display: flex;
+		flex-direction: column;
+	}
+	.contact-subtitle div {
+		text-align: center;
 	}
 }
 /*#endregion*/
