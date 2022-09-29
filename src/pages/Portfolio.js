@@ -10,10 +10,14 @@ function Portfolio({ projectsList }) {
 				{projectsList.map((project) => {
 					return (
 						<Project
+							key={project.id}
 							title={project.title}
 							description={project.description}
 							imageSource={project.imageSource}
 							skillsUsed={project.skillsUsed}
+							projectRepoLink={project.repoLink}
+							projectLiveLink={project.liveLink}
+							projectDownloadLink={project.downloadLink}
 						/>
 					);
 				})}

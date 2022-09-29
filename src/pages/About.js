@@ -69,9 +69,7 @@ function About({ allSkillsList }) {
 			</h1>
 			<div className="about-me">
 				<div className="about-description">
-					<div className="about-photo-container">
-						<img className="about-photo" src={me} alt="My face!" />
-					</div>
+					<img className="about-photo" src={me} alt="My face!" />
 					<p>
 						Hey! My name is <span className="highlight">Nic</span> and I hold many interests. I've wanted to work with
 						tech since I realized actual people make the sites and games I enjoy -{" "}
