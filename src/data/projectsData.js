@@ -43,13 +43,13 @@ export const projects = [
 		description:
 			"A Todo app using React.js for the frontend with a backend provided by Matt Fetterman in Express and Prisma.",
 		imageSource: todo,
-		skillsUsed: ["React", "APIs", "REST", "Axios", "Javascript", "HTML", "CSS"],
+		skillsUsed: ["React", "APIs", "REST", "Axios", "Javascript", "CSS"],
 		repoLink: "https://github.com/Aphemra/todo-app",
 		liveLink: "https://aphemra-todo.netlify.app/",
 	},
 	{
 		id: uuid(),
-		title: "International Pokedex",
+		title: "Intl. Pokedex",
 		description: "An app making use of the PokeAPI to pull in data and display it with a live search and filter.",
 		imageSource: pokedex,
 		skillsUsed: ["React", "APIs", "Javascript", "HTML", "CSS"],
