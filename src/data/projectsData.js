@@ -4,6 +4,7 @@ import flashcard from "../images/projectImages/flashcard.png";
 import battleship from "../images/projectImages/battleship.png";
 import portfolio from "../images/projectImages/portfolio.png";
 import todo from "../images/projectImages/todoApp.png";
+import pokedex from "../images/projectImages/pokedex.png";
 
 export const projects = [
 	{
@@ -50,7 +51,7 @@ export const projects = [
 		id: uuid(),
 		title: "International Pokedex",
 		description: "An app making use of the PokeAPI to pull in data and display it with a live search and filter.",
-		imageSource: todo,
+		imageSource: pokedex,
 		skillsUsed: ["React", "APIs", "Javascript", "HTML", "CSS"],
 		repoLink: "https://github.com/Aphemra/international-pokedex",
 		liveLink: "https://aphemra.github.io/international-pokedex/",
