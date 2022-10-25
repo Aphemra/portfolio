@@ -3,6 +3,7 @@ import uuid from "react-uuid";
 import flashcard from "../images/projectImages/flashcard.png";
 import battleship from "../images/projectImages/battleship.png";
 import portfolio from "../images/projectImages/portfolio.png";
+import todo from "../images/projectImages/todoApp.png";
 
 export const projects = [
 	{
@@ -18,7 +19,7 @@ export const projects = [
 	{
 		id: uuid(),
 		title: "Portfolio Site",
-		description: "The very site you are on right now!",
+		description: "The very site you are on right now! Inspired by Brittany Chiang's design and built from the ground up.",
 		imageSource: portfolio,
 		skillsUsed: ["React", "Javascript", "HTML", "CSS"],
 		repoLink: "https://github.com/Aphemra/portfolio",
@@ -34,5 +35,24 @@ export const projects = [
 		repoLink: "https://github.com/NicCantCode/WeekLongGame1-Battleship",
 		liveLink: "",
 		downloadLink: "https://niccantcode.itch.io/battleship",
+	},
+	{
+		id: uuid(),
+		title: "Todo App Frontend",
+		description:
+			"A Todo app using React.js for the frontend with a backend provided by Matt Fetterman in Express and Prisma.",
+		imageSource: todo,
+		skillsUsed: ["React", "APIs", "REST", "Axios", "Javascript", "HTML", "CSS"],
+		repoLink: "https://github.com/Aphemra/todo-app",
+		liveLink: "https://aphemra-todo.netlify.app/",
+	},
+	{
+		id: uuid(),
+		title: "International Pokedex",
+		description: "An app making use of the PokeAPI to pull in data and display it with a live search and filter.",
+		imageSource: todo,
+		skillsUsed: ["React", "APIs", "Javascript", "HTML", "CSS"],
+		repoLink: "https://github.com/Aphemra/international-pokedex",
+		liveLink: "https://aphemra.github.io/international-pokedex/",
 	},
 ];

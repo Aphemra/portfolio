@@ -37,6 +37,30 @@ export const webSkills = [
 		name: "Node",
 		confidence: 0.4,
 	},
+	{
+		id: uuid(),
+		category: "web",
+		name: "APIs",
+		confidence: 0.75,
+	},
+	{
+		id: uuid(),
+		category: "web",
+		name: "REST",
+		confidence: 0.75,
+	},
+	{
+		id: uuid(),
+		category: "web",
+		name: "Express",
+		confidence: 0.4,
+	},
+	{
+		id: uuid(),
+		category: "web",
+		name: "Axios",
+		confidence: 0.6,
+	},
 ];
 export const gameSkills = [
 	{
