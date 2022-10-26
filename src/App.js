@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 
 function App() {
 	const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-	const resumePDFLink = "https://drive.google.com/file/d/1AnbkQUZR-gCo5-qJsqJzUFEgjGvexkA9/view?usp=sharing";
+	const resumePDFLink = "https://drive.google.com/file/d/1QH1qQgky8t7yn5-VsctpREJfN1kMOmgd/view?usp=sharing";
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
 
 	const shuffledSkillsList = () => {
