@@ -52,12 +52,6 @@ export const webSkills = [
 	{
 		id: uuid(),
 		category: "web",
-		name: "Express",
-		confidence: 0.4,
-	},
-	{
-		id: uuid(),
-		category: "web",
 		name: "Axios",
 		confidence: 0.6,
 	},

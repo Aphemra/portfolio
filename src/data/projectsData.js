@@ -33,7 +33,7 @@ export const projects = [
 		description: "A recreation of the classic naval board game.",
 		imageSource: battleship,
 		skillsUsed: ["C#", "Unity"],
-		repoLink: "https://github.com/NicCantCode/WeekLongGame1-Battleship",
+		repoLink: "https://github.com/NicCantCode/battleship",
 		liveLink: "",
 		downloadLink: "https://niccantcode.itch.io/battleship",
 	},
