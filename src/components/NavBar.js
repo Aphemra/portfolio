@@ -27,17 +27,12 @@ function NavBar({ theme, switchTheme, resumePDFLink }) {
 					</a>
 				</div>
 				<div className="icon">
-					<a
-						title="Visit my LinkedIn page!"
-						target="_blank"
-						rel="noreferrer"
-						href="https://www.linkedin.com/in/nickibler/"
-					>
+					<a title="Visit my LinkedIn page!" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/nickibler/">
 						<FontAwesomeIcon icon={faLinkedin} />
 					</a>
 				</div>
 				<div className="icon">
-					<a title="Visit my Twitter page!" target="_blank" rel="noreferrer" href="http://www.twitter.com/aphemra">
+					<a title="Visit my Twitter page!" target="_blank" rel="noreferrer" href="http://www.twitter.com/NicCantCode">
 						<FontAwesomeIcon icon={faTwitter} />
 					</a>
 				</div>
@@ -45,8 +40,8 @@ function NavBar({ theme, switchTheme, resumePDFLink }) {
 			</div>
 			<div className="static-icons-right">
 				<div className="email">
-					<a title="Email me!" target="_blank" rel="noreferrer" href="mailto:aphemra@gmail.com">
-						aphemra@gmail.com
+					<a title="Email me!" target="_blank" rel="noreferrer" href="mailto:niccantcode@gmail.com">
+						niccantcode@gmail.com
 					</a>
 				</div>
 				<div className="divider"></div>
@@ -62,11 +57,7 @@ function NavBar({ theme, switchTheme, resumePDFLink }) {
 					</li>
 					<li>
 						<button title="Switch themes!" className="theme-button" onClick={switchTheme}>
-							{theme === "light" ? (
-								<DarkModeIcon className="theme-icon" />
-							) : (
-								<LightModeIcon className="theme-icon" />
-							)}
+							{theme === "light" ? <DarkModeIcon className="theme-icon" /> : <LightModeIcon className="theme-icon" />}
 						</button>
 					</li>
 				</ul>
@@ -112,11 +103,7 @@ function NavBar({ theme, switchTheme, resumePDFLink }) {
 			<nav className="navbar">
 				<div className="avatar-container">
 					<a href="https://nichal.us/">
-						<img
-							className="site-avatar"
-							src={theme === "light" ? lightModeAvatar : darkModeAvatar}
-							alt="My custom avatar."
-						/>
+						<img className="site-avatar" src={theme === "light" ? lightModeAvatar : darkModeAvatar} alt="My custom avatar." />
 						<span className="nav-first-name"></span>
 						<span className="nav-last-name">Kibler</span>
 					</a>
@@ -143,11 +130,7 @@ function NavBar({ theme, switchTheme, resumePDFLink }) {
 					</li>
 					<li className="do-not-bounce">
 						<button title="Switch themes!" className="theme-button" onClick={switchTheme}>
-							{theme === "light" ? (
-								<DarkModeIcon className="theme-icon" />
-							) : (
-								<LightModeIcon className="theme-icon" />
-							)}
+							{theme === "light" ? <DarkModeIcon className="theme-icon" /> : <LightModeIcon className="theme-icon" />}
 						</button>
 					</li>
 				</ul>

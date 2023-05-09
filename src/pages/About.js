@@ -3,7 +3,7 @@ import Skill from "../components/Skill";
 import me from "../images/me.jpg";
 
 function About({ allSkillsList }) {
-	const skillFilters = { all: "all", web: "web", game: "game", shared: "shared" };
+	const skillFilters = { all: "all", web: "web", game: "game", misc: "misc" };
 	const [skillFilter, setSkillFilter] = useState(skillFilters.all);
 
 	function setActiveHorizontalFilter(filter) {
@@ -14,15 +14,15 @@ function About({ allSkillsList }) {
 				indicatorEdge.style.top = "1.5rem";
 				indicatorBG.style.top = "1.5rem";
 				break;
-			case skillFilters.web:
+			case skillFilters.game:
 				indicatorEdge.style.top = "3.5rem";
 				indicatorBG.style.top = "3.5rem";
 				break;
-			case skillFilters.game:
+			case skillFilters.web:
 				indicatorEdge.style.top = "5.5rem";
 				indicatorBG.style.top = "5.5rem";
 				break;
-			case skillFilters.shared:
+			case skillFilters.misc:
 				indicatorEdge.style.top = "7.5rem";
 				indicatorBG.style.top = "7.5rem";
 				break;
@@ -42,15 +42,15 @@ function About({ allSkillsList }) {
 				indicatorEdge.style.left = "1.1rem";
 				indicatorBG.style.left = "1.1rem";
 				break;
-			case skillFilters.web:
+			case skillFilters.game:
 				indicatorEdge.style.left = "4.5rem";
 				indicatorBG.style.left = "4.5rem";
 				break;
-			case skillFilters.game:
+			case skillFilters.web:
 				indicatorEdge.style.left = "7.9rem";
 				indicatorBG.style.left = "7.9rem";
 				break;
-			case skillFilters.shared:
+			case skillFilters.misc:
 				indicatorEdge.style.left = "11.3rem";
 				indicatorBG.style.left = "11.3rem";
 				break;
@@ -71,23 +71,19 @@ function About({ allSkillsList }) {
 				<div className="about-description">
 					<img className="about-photo" src={me} alt="My face!" />
 					<p>
-						Hey! My name is <span className="highlight">Nic</span> and I hold many interests. I've wanted to work with
-						tech since I realized actual people make the sites and games I enjoy -{" "}
-						<span className="highlight">turns out you can become one of those people</span>!
+						Hello! My name is <span className="highlight">Nic</span> and I've spent the last 15 years of my life pursuing and
+						learning game development and - more recently - web development. It has been a passionate hobby of mine since before I
+						graduated high school and solidified as my career path since I achieved my{" "}
+						<span className="highlight">degree in Computer Science</span> in 2021.
 					</p>
 					<br />
 					<p>
-						Fast forward and I've got a <span className="highlight">degree in computer science</span> and an ever
-						growing list of skills and portfolio projects under my belt. My main focus these days is{" "}
-						<span className="highlight">finding my own little corner</span> of our industry and I plan to continue to
-						expand my skill set and portfolio while I search.
+						Fast forward and I've been working to find my place in the{" "}
+						<span className="highlight">game development industry</span>. Turns out, it's a pretty hard industry to break into!
+						But that's not something that will dissuade me from doing what I <span className="highlight">love to do</span>.
 					</p>
 					<br />
-					<p>
-						You'll find an <span className="highlight">list of my skills and portfolio projects below</span>. Links to{" "}
-						<span className="highlight">project source code and live demos</span> (if available) are also below. I
-						appreciate you coming to check out my site and hope you enjoyed your stay!
-					</p>
+					<p>So I polished up my web dev skills and made this site to demonstrate my ever-growing skill and project portfolio.</p>
 				</div>
 			</div>
 			<div className="about-skills-horizontal">
@@ -101,13 +97,6 @@ function About({ allSkillsList }) {
 					</li>
 					<li
 						tabIndex={0}
-						className={skillFilter === skillFilters.web ? "selected" : ""}
-						onClick={() => setActiveHorizontalFilter(skillFilters.web)}
-					>
-						Web Skills
-					</li>
-					<li
-						tabIndex={0}
 						className={skillFilter === skillFilters.game ? "selected" : ""}
 						onClick={() => setActiveHorizontalFilter(skillFilters.game)}
 					>
@@ -115,10 +104,17 @@ function About({ allSkillsList }) {
 					</li>
 					<li
 						tabIndex={0}
-						className={skillFilter === skillFilters.shared ? "selected" : ""}
-						onClick={() => setActiveHorizontalFilter(skillFilters.shared)}
+						className={skillFilter === skillFilters.web ? "selected" : ""}
+						onClick={() => setActiveHorizontalFilter(skillFilters.web)}
 					>
-						Shared Skills
+						Web Skills
+					</li>
+					<li
+						tabIndex={0}
+						className={skillFilter === skillFilters.shared ? "selected" : ""}
+						onClick={() => setActiveHorizontalFilter(skillFilters.misc)}
+					>
+						Misc. Skills
 					</li>
 				</ul>
 				<div className="skills-divider horizontal"></div>
@@ -162,9 +158,9 @@ function About({ allSkillsList }) {
 					<li
 						tabIndex={0}
 						className={skillFilter === skillFilters.shared ? "selected" : ""}
-						onClick={() => setActiveVerticalFilter(skillFilters.shared)}
+						onClick={() => setActiveVerticalFilter(skillFilters.misc)}
 					>
-						Shared Skills
+						Misc. Skills
 					</li>
 				</ul>
 				<div className="skills-divider vertical"></div>

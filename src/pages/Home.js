@@ -9,10 +9,10 @@ function Home({ resumePDFLink }) {
 			</p>
 			<p className="home-content">
 				I'm a <span className="home-content highlight bold">software engineer</span> and{" "}
-				<span className="home-content highlight bold">game developer</span> with a keen interest in furthering my own
-				knowledge and expanding my skillset into more technologies. I am{" "}
-				<span className="home-content highlight bold">currently looking for a place to call my own</span> in either space
-				and would appreciate a look at what I have to offer.
+				<span className="home-content highlight bold">game developer</span> with a keen interest in furthering my own knowledge
+				and expanding my skillset into more technologies. I am{" "}
+				<span className="home-content highlight bold">currently looking for a place to call my own</span> and would appreciate a
+				look at what I have to offer.
 			</p>
 			<button type="button" title="Download my resume!" className="home-resume-download">
 				<a target="_blank" rel="noreferrer" href={resumePDFLink}>

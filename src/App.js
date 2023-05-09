@@ -5,7 +5,7 @@ import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 import NavBar from "./components/NavBar";
 
-import { webSkills, gameSkills, sharedSkills } from "./data/skillsData";
+import { webSkills, gameSkills, miscSkills } from "./data/skillsData";
 import { projects } from "./data/projectsData";
 import Footer from "./components/Footer";
 
@@ -15,7 +15,7 @@ function App() {
 	const [theme, setTheme] = useLocalState("theme", defaultDark ? "dark" : "light");
 
 	const shuffledSkillsList = () => {
-		const allSkillsList = [...webSkills, ...gameSkills, ...sharedSkills];
+		const allSkillsList = [...webSkills, ...gameSkills, ...miscSkills];
 		return allSkillsList
 			.map((value) => ({ value, sort: Math.random() }))
 			.sort((a, b) => a.sort - b.sort)

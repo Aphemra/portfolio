@@ -18,7 +18,7 @@ function Contact({ resumePDFLink }) {
 				<div className="contact-right">
 					<div className="contact-buttons">
 						<div className="contact-me-button">
-							<a target="_blank" rel="noreferrer" href="mailto:aphemra@gmail.com">
+							<a target="_blank" rel="noreferrer" href="mailto:niccantcode@gmail.com">
 								Contact Me
 							</a>
 						</div>
@@ -35,22 +35,12 @@ function Contact({ resumePDFLink }) {
 							</a>
 						</div>
 						<div className="contact-icon">
-							<a
-								title="Visit my LinkedIn page!"
-								target="_blank"
-								rel="noreferrer"
-								href="https://www.linkedin.com/in/nickibler/"
-							>
+							<a title="Visit my LinkedIn page!" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/nickibler/">
 								<FontAwesomeIcon icon={faLinkedin} />
 							</a>
 						</div>
 						<div className="contact-icon">
-							<a
-								title="Visit my Twitter page!"
-								target="_blank"
-								rel="noreferrer"
-								href="http://www.twitter.com/aphemra"
-							>
+							<a title="Visit my Twitter page!" target="_blank" rel="noreferrer" href="http://www.twitter.com/NicCantCode">
 								<FontAwesomeIcon icon={faTwitter} />
 							</a>
 						</div>
